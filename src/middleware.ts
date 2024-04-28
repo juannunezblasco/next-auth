@@ -16,11 +16,6 @@ export async function middleware (request: NextRequest) {
     console.log('redirecting to login')
     return NextResponse.redirect(new URL('/auth/login', request.url))
   }
-
-  // if (request.nextUrl.pathname !== '/auth/login' && !token) {
-  //   console.log('redirecting to login')
-  //   return NextResponse.redirect(new URL('/auth/login', request.url))
-  // }
   
   if (/^\/auth\//.test(request.nextUrl.pathname) && token) {
     return NextResponse.redirect(new URL('/', request.url))
